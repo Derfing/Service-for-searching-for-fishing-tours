@@ -14,5 +14,13 @@ class Base {
     protected string $name;
     protected string $coordinates;
     protected string $nameOfRegion;
-    protected int $id;
+    protected int $idOfWaterBody;
+
+    public function __construct(string $name, string $coordinates, string $nameOfRegion, int $idOfWaterBody)
+    {
+        $this->name = $name;
+        $this->coordinates = $coordinates;
+        $this->nameOfRegion = $nameOfRegion;
+        $this->idOfWaterBody = $idOfWaterBody;
+    }
 }

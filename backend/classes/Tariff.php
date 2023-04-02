@@ -17,4 +17,13 @@ class Tariff {
     protected int $price;
     protected string $season;
     protected string $nameOfBase;
+
+    public function __construct(int $id, int $tripDuration, int $price, string $season, $nameOfBase)
+    {
+        $this->id = $id;
+        $this->tripDuration = $tripDuration;
+        $this->price = $price;
+        $this->season = $season;
+        $this->nameOfBase = $nameOfBase;
+    }
 }

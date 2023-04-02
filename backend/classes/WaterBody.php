@@ -10,7 +10,7 @@ namespace classes;
 //     average_depth INT NOT NULL
 // );
 
-class WaterBody 
+class WaterBody
 {
     protected int $id;
     protected string $name;
@@ -18,8 +18,19 @@ class WaterBody
     protected int $area;
     protected int $averageDepth;
 
-    public function getNameOfWaterbody()
+    public function __construct(int $id, string $name, string $type, int $area, int $averageDepth)
     {
-        return;
+        $this->id = $id;
+        $this->name = $name;
+        $this->type = $type;
+        $this->area = $area;
+        $this->averageDepth = $averageDepth;
+    }
+
+    public function getFullNameOfWaterBody()
+    {
+        if (isset($this->name) && isset($this->type)) {
+            return $this->type.$this->name;
+        }
     }
 }
