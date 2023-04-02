@@ -11,5 +11,8 @@ namespace classes;
 // );
 
 class Base {
-    
+    protected string $name;
+    protected string $coordinates;
+    protected string $nameOfRegion;
+    protected int $id;
 }

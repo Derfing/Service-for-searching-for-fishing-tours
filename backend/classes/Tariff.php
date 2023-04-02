@@ -12,5 +12,9 @@ namespace classes;
 // );
 
 class Tariff {
-
+    protected int $id;
+    protected int $tripDuration;
+    protected int $price;
+    protected string $season;
+    protected string $nameOfBase;
 }

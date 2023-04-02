@@ -12,9 +12,9 @@ namespace classes;
 
 class WaterBody 
 {
-    protected int $waterbodyId;
-    protected string $waterbodyName;
-    protected string $waterbodyType;
+    protected int $id;
+    protected string $name;
+    protected string $type;
     protected int $area;
     protected int $averageDepth;
 
