@@ -8,13 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="container">
+<body style="min-height: 100vh; display: flex;">
+    <div class="container my-auto">
         <div class="row">
             <div class="col-12 text-center">
                 <form method="POST" enctype="text" action="http://127.0.0.1:8000/index.php">
                     <div class="m-2 row">
-                        <div class="col-4">
+                        <div class="col-4 my-auto">
                             <span class="col-4">Название водоема:</span>
                         </div>
                         <div class="col-8">
@@ -22,11 +22,18 @@
                         </div>
                     </div>
                     <div class="m-2 row">
-                        <div class="col-4">
+                        <div class="col-4 my-auto">
                             <span class="col-4 form-label">Тип водоема:</span>
                         </div>
                         <div class="col-8">
-                            <input name="type" class="form-control" type="text" id="input-name">
+                            <div class="form-group">
+                              <select multiple class="form-control" size="3" name="types[]" id="waterbody-types">
+                                <option value="lake">Пруд</option>
+                                <option value="pond">Озеро</option>
+                                <option value="river">Река</option>
+                                <option value="sea">Море</option>
+                              </select>
+                            </div>
                         </div>
                     </div>
                     <div class="m-2 row">
