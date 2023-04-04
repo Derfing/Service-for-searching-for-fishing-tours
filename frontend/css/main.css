@@ -1,0 +1,11 @@
+.card-form {
+    border: 3px solid rgb(54, 63, 90);
+    border-radius: 10px;
+    padding: 3vmin;
+    background-color: white;
+}
+body {
+    background-color: rgb(185, 180, 180);
+}
+
+

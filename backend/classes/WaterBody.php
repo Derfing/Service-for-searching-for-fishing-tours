@@ -12,13 +12,9 @@ namespace classes;
 
 class WaterBody
 {
-    protected int $id;
-    protected string $name;
-    protected string $type;
-    protected int $area;
-    protected int $averageDepth;
+    protected int $waterBody;
 
-    public function __construct(int $id, string $name, string $type, int $area, int $averageDepth)
+    public function __construct()
     {
         $this->id = $id;
         $this->name = $name;
@@ -31,6 +27,9 @@ class WaterBody
     {
         if (isset($this->name) && isset($this->type)) {
             return $this->type.$this->name;
+        }
+        else {
+            return "Incoplete Name!";
         }
     }
 }
