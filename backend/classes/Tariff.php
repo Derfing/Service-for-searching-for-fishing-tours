@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace App\classes;
 
 // CREATE TABLE tariff (
 //     tariff_id INT NOT NULL PRIMARY KEY,

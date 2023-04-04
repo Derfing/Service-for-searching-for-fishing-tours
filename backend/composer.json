@@ -1,0 +1,7 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "E:\\Учеба\\Программирование\\LAB_3\\Service-for-searching-for-fishing-tours\\backend\\"
+        }
+    }
+}

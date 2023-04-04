@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace App\classes;
 
 // CREATE TABLE base (
 //     base_name VARCHAR(50) NOT NULL PRIMARY KEY,

@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace App\classes;
 
 // CREATE TABLE waterbody (
 //     waterbody_id INT NOT NULL PRIMARY KEY,
@@ -12,24 +12,35 @@ namespace classes;
 
 class WaterBody
 {
-    protected int $waterBody;
-
-    public function __construct()
+    static function getFilteredResult($name, $types, $connection)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->type = $type;
-        $this->area = $area;
-        $this->averageDepth = $averageDepth;
-    }
-
-    public function getFullNameOfWaterBody()
-    {
-        if (isset($this->name) && isset($this->type)) {
-            return $this->type.$this->name;
+        if (!$name && $types) {
+            $arrayOfTypes = "";
+            foreach ($types as $type) {
+                $arrayOfTypes .= "'$type',";
+            }
+            $arrayOfTypes = substr($arrayOfTypes, 0, -1);
+            $query = "SELECT * FROM waterbody WHERE waterbody_type IN ($arrayOfTypes)";
+        } elseif ($name && !$types) {
+            $query = "SELECT * FROM waterbody WHERE waterbody_name='$name'";
+        } elseif ($name && $types) {
+            $arrayOfTypes = "";
+            foreach ($types as $type)
+            {
+                $arrayOfTypes .= "'$type',";
+            }
+            $arrayOfTypes = substr($arrayOfTypes, 0, -1);
+            $query = "SELECT * FROM waterbody WHERE waterbody_name='$name' OR waterbody_type IN ($arrayOfTypes)";
         }
-        else {
-            return "Incoplete Name!";
+
+        $result = $connection->query($query);
+
+        if (!$connection->errno) {
+            foreach ($result as $row) {
+                echo $row['waterbody_id'] . ' ' . $row['area'] . ' ' . $row['waterbody_name'] . '<br>';
+            }
+        } else {
+            echo $connection->error;
         }
     }
 }
