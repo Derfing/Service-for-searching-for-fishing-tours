@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body style="min-height: 100vh; display: flex;">
+    <div class="container my-auto">
+        <div class="row">
+            <div class="col-12 text-center card-form">
+                <form method="POST" enctype="text" action="http://127.0.0.1:8000/FindBase.php">
+                    <div class="m-2 row">
+                        <div class="col-4 my-auto">
+                            <span class="text-center">Название тур-базы:</span>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" type="text" name="baseName">
+                        </div>
+                    </div>
+                    <div class="m-2 row">
+                        <div class="col-4 my-auto">
+                            <span class="text-center">Регион (опционально):</span>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-control" type="text" name="regionName">
+                                <option>Ленинградская область</option>
+                                <option>Удмуртская республика</option>
+                                <option>Ямало-ненецкий автономный округ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="m-2 row">
+                        <input type="submit" class="btn btn-info" style="font-size: large;" id="submit"
+                            value="Найти тур-базы!">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

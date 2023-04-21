@@ -2,6 +2,8 @@
 
 namespace App\classes;
 
+use mysqli;
+
 // CREATE TABLE waterbody (
 //     waterbody_id INT NOT NULL PRIMARY KEY,
 //     waterbody_name VARCHAR(50) NOT NULL,
@@ -33,14 +35,30 @@ class WaterBody
             $query = "SELECT * FROM waterbody WHERE waterbody_name='$name' OR waterbody_type IN ($arrayOfTypes)";
         }
 
-        $result = $connection->query($query);
+        if ($query) {
+            $result = $connection->query($query);
+        }
+        else
+        {
+            echo "-2";
+            return 0;
+        }
 
         if (!$connection->errno) {
-            foreach ($result as $row) {
-                echo $row['waterbody_id'] . ' ' . $row['area'] . ' ' . $row['waterbody_name'] . '<br>';
+            // foreach ($result as $row) {
+            //     echo $row['waterbody_id'] . ' ' . $row['area'] . ' ' . $row['waterbody_name'] . '<br>';
+            // }
+            if (mysqli_num_rows($result))
+            {
+                echo "1";
+            }
+            else 
+            {
+                echo "0";
             }
         } else {
-            echo $connection->error;
+            // echo $connection->error;
+            echo "-1";
         }
     }
 }

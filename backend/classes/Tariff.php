@@ -11,7 +11,8 @@ namespace App\classes;
 //     FOREIGN KEY (base_name) REFERENCES base (base_name)
 // );
 
-class Tariff {
+class Tariff
+{
     protected int $id;
     protected int $tripDuration;
     protected int $price;
@@ -25,5 +26,49 @@ class Tariff {
         $this->price = $price;
         $this->season = $season;
         $this->nameOfBase = $nameOfBase;
+    }
+
+    static function getFilteredResult($seasons, $maxPrice, $connection)
+    {
+        if ($seasons && !$maxPrice) {
+            $arrayOfSeasons = "";
+            foreach ($seasons as $season) {
+                $arrayOfSeasons .= "'$season',";
+            }
+            $arrayOfTypes = substr($arrayOfSeasons, 0, -1);
+            $query = "SELECT * FROM tariff WHERE season IN ($arrayOfSeasons)";
+        } elseif ($maxPrice && !$seasons) {
+            $query = "SELECT * FROM tariff WHERE price <= '$maxPrice'";
+        } elseif ($maxPrice && $seasons) {
+            $arrayOfSeasons = "";
+            foreach ($seasons as $season) {
+                $arrayOfSeasons .= "'$season',";
+            }
+            $arrayOfSeasons = substr($arrayOfSeasons, 0, -1);
+            $query = "SELECT * FROM tariff WHERE season IN ($arrayOfSeasons) OR price <= '$maxPrice'";
+        }
+
+        if ($query) {
+            $result = $connection->query($query);
+        }
+        else
+        {
+            echo "-2";
+            return 0;
+        }
+
+        if (!$connection->errno) {
+            // foreach ($result as $row) {
+            //     echo $row['waterbody_id'] . ' ' . $row['area'] . ' ' . $row['waterbody_name'] . '<br>';
+            // }
+            if (mysqli_num_rows($result)) {
+                echo "1";
+            } else {
+                echo "0";
+            }
+        } else {
+            // echo $connection->error;
+            echo "-1";
+        }
     }
 }
