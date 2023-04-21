@@ -4,11 +4,11 @@ include("ConnectToDatabase.php");
 
 use App\classes\Tariff;
 
-$seasons = $_POST['seasons'];
-$maxPrice = $_POST['maxPrice'];
+$seasons = $_GET['seasons'];
+$maxPrice = $_GET['maxPrice'];
 
 // print_r($seasons);
 // echo('<br>-------------<br>');
 // print_r($maxPrice);
 
-Tariff::getFilteredResult($seasons, $maxPrice, $connection);
+return Tariff::getFilteredResult($seasons, $maxPrice, $connection);

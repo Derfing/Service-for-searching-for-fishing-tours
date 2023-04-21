@@ -2,8 +2,6 @@
 
 namespace App\classes;
 
-use mysqli;
-
 // CREATE TABLE waterbody (
 //     waterbody_id INT NOT NULL PRIMARY KEY,
 //     waterbody_name VARCHAR(50) NOT NULL,

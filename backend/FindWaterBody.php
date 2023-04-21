@@ -4,7 +4,7 @@ include('ConnectToDatabase.php');
 
 use App\classes\WaterBody;
 
-$name = $_POST['name'];
-$types = $_POST['types'];
+$name = $_GET['name'];
+$types = $_GET['types'];
 
-WaterBody::getFilteredResult($name, $types, $connection);
+return WaterBody::getFilteredResult($name, $types, $connection);

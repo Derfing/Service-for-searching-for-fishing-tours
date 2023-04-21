@@ -18,7 +18,7 @@
     <div class="container my-auto">
         <div class="row">
             <div class="col-12 text-center card-form">
-                <form method="POST" enctype="text" action="http://127.0.0.1:8000/FindBase.php">
+                <form method="GET" enctype="text" action="http://127.0.0.1:8000/FindBase.php">
                     <div class="m-2 row">
                         <div class="col-4 my-auto">
                             <span class="text-center">Название тур-базы:</span>
@@ -33,9 +33,10 @@
                         </div>
                         <div class="col-8">
                             <select class="form-control" type="text" name="regionName">
-                                <option>Ленинградская область</option>
-                                <option>Удмуртская республика</option>
-                                <option>Ямало-ненецкий автономный округ</option>
+                                <option value = ''>Любой(ая)</option>
+                                <option value = 'Colorado'>Ленинградская область</option>
+                                <option value = 'Texas'>Удмуртская республика</option>
+                                <option value = 'California'>Ямало-ненецкий автономный округ</option>
                             </select>
                         </div>
                     </div>
