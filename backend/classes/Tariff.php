@@ -30,14 +30,7 @@ class Tariff
 
     static function getFilteredResult($seasons, $maxPrice, $connection)
     {
-        if ($seasons && !$maxPrice) {
-            $arrayOfSeasons = "";
-            foreach ($seasons as $season) {
-                $arrayOfSeasons .= "'$season',";
-            }
-            $arrayOfTypes = substr($arrayOfSeasons, 0, -1);
-            $query = "SELECT * FROM tariff WHERE season IN ($arrayOfSeasons)";
-        } elseif ($maxPrice && !$seasons) {
+        if ($maxPrice && !$seasons) {
             $query = "SELECT * FROM tariff WHERE price <= '$maxPrice'";
         } elseif ($maxPrice && $seasons) {
             $arrayOfSeasons = "";
@@ -50,9 +43,7 @@ class Tariff
 
         if ($query) {
             $result = $connection->query($query);
-        }
-        else
-        {
+        } else {
             echo "-2";
             return 0;
         }
