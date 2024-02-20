@@ -1,1 +1,1 @@
-# Service-for-searching-for-fishing-tours
+Just a class project done as part of a class at the university. Nothing interesting.
